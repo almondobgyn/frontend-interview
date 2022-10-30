@@ -1,38 +1,52 @@
-import * as React from "react"
 import {
-  ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
+  Button,
+  ChakraProvider,
+  Flex,
+  Heading,
+  Input,
+  InputGroup,
+  InputRightElement,
   theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+  VStack,
+} from "@chakra-ui/react";
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-    </Box>
-  </ChakraProvider>
-)
+export const App = () => {
+  return (
+    <ChakraProvider theme={theme}>
+      <Box textAlign="center" fontSize="xl">
+        <Flex minH="100vh" p={3} justifyContent="center" alignItems="center">
+          <VStack spacing={8} width="xl" p={8}>
+            <Heading>Search health.gov</Heading>
+
+            <InputGroup size="md">
+              <Input
+                pr="5rem"
+                size="md"
+                onChange={() => {}}
+                placeholder="Search for a topic"
+              />
+              <InputRightElement width="5.5rem">
+                <Button
+                  h="1.75rem"
+                  size="sm"
+                  onClick={() => {}}
+                  isLoading={false}
+                  disabled={false}
+                >
+                  Submit
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+
+            <Box h="lg" overflow="auto" w="100%">
+              <VStack spacing={4} align="left">
+                {/* results here */}
+              </VStack>
+            </Box>
+          </VStack>
+        </Flex>
+      </Box>
+    </ChakraProvider>
+  );
+};
